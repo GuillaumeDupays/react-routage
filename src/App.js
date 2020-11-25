@@ -4,6 +4,7 @@ import Todos from './components/Todos';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'; 
 import Apropos from './components/A-propos';
 import Contact from './components/Contact';
+import TodoDetails from './components/TodoDetails';
 
 class App extends Component {
   state = {
@@ -33,9 +34,10 @@ class App extends Component {
           </header>
             <Route path="/a-propos" component={Apropos} />
             <Route path="/contact" component={Contact} />
-            <Route path="/todos" render={() => (
+            <Route exact path="/todos" render={() => (
             <Todos todos={this.state.todos}/> 
             )}/>
+            <Route path="/todos/:id" component={TodoDetails}></Route>
         </Router>
       </div>
     );
